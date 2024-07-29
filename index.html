@@ -12,11 +12,11 @@
 			<form method="POST" action="https://api.routingapi.com/rtbs.json?key=ab514634-6955-4f94-9e22-5de033366d2f&publisher_id=87cd282&caller_number=CALLER_NUMBER&key_1=value_1&key_2=value_2" >
 				<div class="form-group">
 					<label for="firstName"><i class="fa fa-user"></i> First Name</label>
-					<input type="text" id="firstName" name="firstName" placeholder="Your Name" required />
+					<input type="text" id="first_name" name="firstName" placeholder="Your Name" required />
 				</div>
 				<div class="form-group">
 					<label for="lastName"><i class="fa fa-user"></i> Last Name</label>
-					<input type="text" id="lastName" name="lastName" placeholder="Your Last Name" required />
+					<input type="text" id="last_name" name="lastName" placeholder="Your Last Name" required />
 				</div>
 				<div class="form-group">
 					<label for="address"
@@ -33,16 +33,16 @@
 				</div>
 				<div class="form-group">
 					<label for="zipCode"><i class="fa fa-map-pin"></i> Zip Code</label>
-					<input type="text" id="zipCode" name="zipCode" placeholder="ex: 90001" required />
+					<input type="text" id="caller_zip" name="zipCode" placeholder="ex: 90001" required />
 				</div>
 				<div class="form-group">
 					<label for="emailAddress"><i class="fa fa-envelope"></i> Email Address</label
 					>
-					<input type="email" id="emailAddress" name="emailAddress" placeholder="email@email.com" required />
+					<input type="email" id="email" name="emailAddress" placeholder="email@email.com" required />
 				</div>
 				<div class="form-group">
 					<label for="phoneNumber"><i class="fa fa-phone"></i> Phone Number</label>
-					<input type="tel" id="phoneNumber" name="phoneNumber" placeholder="8887777777" required />
+					<input type="tel" id="caller_number" name="phoneNumber" placeholder="8887777777" required />
 				</div>
 				<button type="submit">Submit</button>
 			</form>
