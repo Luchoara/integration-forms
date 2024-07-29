@@ -9,7 +9,7 @@
 	<body>
 		<div class="container">
 			<h2>Contact us</h2>
-			<form method="POST" action="https://api.routingapi.com/rtbs.json?key=ab514634-6955-4f94-9e22-5de033366d2f&publisher_id=a87cd282&caller_number=[caller_number]&key_1=value_1&key_2=value_2" >
+			<form method="POST" action=https://api.routingapi.com/rtbs.json?key=ab514634-6955-4f94-9e22-5de033366d2f&publisher_id=a87cd282&caller_number=[caller_number]&key_1=value_1&key_2=value_2" >
 				<div class="form-group">
 					<label for="firstName"><i class="fa fa-user"></i> First Name</label>
 					<input type="text" id="first_name" name="firstName" placeholder="Your Name" required />
@@ -42,10 +42,18 @@
 				</div>
 				<div class="form-group">
 					<label for="phoneNumber"><i class="fa fa-phone"></i> Phone Number</label>
-					<input type="tel" id="caller_number" name="phoneNumber" placeholder="8887777777" required />
+					<input type="tel" id="caller_number" name="caller_number" placeholder="8887777777" required />
 				</div>
 				<button type="submit">Submit</button>
 			</form>
 		</div>
+		<script>
+			function getPhoneNumber() {
+				const phoneNumberInput = document.getElementById("caller_number");
+				const phoneNumberValue = phoneNumberInput.value;
+				// You can now use the phoneNumberValue for further processing
+				console.log("Phone number:", phoneNumberValue);
+			}
+		</script>
 	</body>
 </html>
