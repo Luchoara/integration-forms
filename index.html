@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con CORS</title>
+</head>
+<body>
+    <h1>Enviar datos a través de CORS</h1>
+    <form id="dataForm">
+        <label for="inputData">Dato:</label>
+        <input type="text" id="inputData" name="data" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        document.getElementById('dataForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const data = {
+                data: document.getElementById('inputData').value
+            };
+
+            fetch('http://localhost:3000/api/data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                console.log('Resultado:', result);
+                alert('Datos enviados correctamente!');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Ocurrió un error al enviar los datos.');
+            });
+        });
+    </script>
+</body>
+</html>
