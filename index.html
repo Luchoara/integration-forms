@@ -77,7 +77,7 @@
 						email: document.getElementById("email").value,
 					};
 
-					fetch("https://integration-forms.vercel.app", {  // URL del servidor en Vercel
+					fetch("https://integration-forms.vercel.app/api/proxy", {  // URL del servidor en Vercel
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
@@ -86,15 +86,7 @@
 					})
 						.then((response) => response.json())
 						.then((result) => {
-							console.log("Resultado:", result);
-
-							/*
-							const jsonResult = JSON.parse(response); // Intentar parsear el resultado a JSON
-							console.log("Resultado:", jsonResult);
-							*/
-
-							// console.log("response:", response);
-
+							console.log("Result:", result);
 							alert("Data sent!");
 						})
 						.catch((error) => {
