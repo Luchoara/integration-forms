@@ -5,7 +5,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:3000", // Origin local para desarrollo
-  "https://integration-forms-r856.vercel.app/" // Agrega aquí tu dominio de Vercel cuando esté desplegado
+  "https://integration-forms.vercel.app" // Agrega aquí tu dominio de Vercel cuando esté desplegado
 ];
 
 app.use(cors({
@@ -38,7 +38,4 @@ app.post("/proxy", (req, res) => {
   );
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Proxy server running on port ${PORT}`);
-});
+
