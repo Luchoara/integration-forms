@@ -5,7 +5,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:3000", // Origin local para desarrollo
-  "https://tu-dominio-vercel.vercel.app" // Agrega aquí tu dominio de Vercel cuando esté desplegado
+  "https://integration-forms-r856.vercel.app/" // Agrega aquí tu dominio de Vercel cuando esté desplegado
 ];
 
 app.use(cors({
