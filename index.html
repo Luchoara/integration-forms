@@ -3,13 +3,19 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Formulario con CORS</title>
+		<title>Sent Data</title>
 		<link rel="stylesheet" href="styles.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"
+		/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 	</head>
 	<body>
 		<div class="form-container">
 			<form id="dataForm">
-				<h2>Enviar datos a través de CORS</h2>
+				<h2>Form</h2>
 
 				<label for="publisher_id">Publisher ID:</label>
 				<input type="text" id="publisher_id" name="publisher_id" required />
@@ -35,6 +41,9 @@
 				<label for="zip_code">Zip Code:</label>
 				<input type="text" id="zip_code" name="zip_code" required />
 
+				<label class="form-label" for="dob">Date of Birth</label>
+				<input type="text" class="form-control" name="dob" id="dob" />
+
 				<label for="email">Email:</label>
 				<input type="email" id="email" name="email" required />
 
@@ -43,6 +52,14 @@
 		</div>
 
 		<script>
+			$(document).ready(function () {
+				$("#dob").datetimepicker({
+					format: "Y-m-d",
+					timepicker: false,
+					maxDate: 0,
+				});
+			});
+
 			document
 				.getElementById("dataForm")
 				.addEventListener("submit", function (event) {
@@ -60,7 +77,7 @@
 						email: document.getElementById("email").value,
 					};
 
-					fetch("http://localhost:3000/proxy", {
+					fetch("https://tu-proyecto.vercel.app/api/proxy", {  // URL del servidor en Vercel
 						method: "POST",
 						headers: {
 							"Content-Type": "application/json",
@@ -70,7 +87,7 @@
 						.then((response) => response.json())
 						.then((result) => {
 							console.log("Resultado:", result);
-							
+
 							/*
 							const jsonResult = JSON.parse(response); // Intentar parsear el resultado a JSON
 							console.log("Resultado:", jsonResult);
@@ -78,12 +95,11 @@
 
 							// console.log("response:", response);
 
-							
-							alert("Datos enviados correctamente!");
+							alert("Data sent!");
 						})
 						.catch((error) => {
 							console.error("Error:", error);
-							alert("Ocurrió un error al enviar los datos.");
+							alert("There is an error");
 						});
 				});
 		</script>
